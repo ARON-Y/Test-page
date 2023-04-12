@@ -1,0 +1,247 @@
+@charset 'utf-8';
+@import url("https://fonts.googleapis.com/css2?family=Fasthand&family=Noto+Serif:ital,wght@1,700&display=swap");
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.hidden {
+  position: absolute;
+  top: -999999px;
+  opacity: 0;
+}
+
+.community {
+  width: 100%;
+  position: relative;
+  /* 우리는 지금 커뮤니티 하나의 섹션만 하지만 실무에선 섹션이 여러개 있을 경우 
+  해당 콘텐츠로 다 가지고 오는것이 중요하다.
+  레이아웃이 뭉개지지 않고 섹션별로 층층이 가져 올 수 있기 때문에!
+  지금 상황에선 필요 없는 포지션 코딩이지만 명시적으로 주었다고 생각할 것! */
+}
+
+.community .inner {
+  width: 1180px;
+  margin: 50px auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+.community .inner .center-line {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background-color: #000;
+}
+
+.community .inner .center-line .scroll-icon {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  /* 가운데 정렬해주는 코드 */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f2f2f2;
+  /* 둥굴게 버튼처럼 만드는 코드 */
+  font-size: 25px;
+  text-align: center;
+  line-height: 40px;
+  /* 동그라미 안에 아이콘을 가운데에 배치 */
+  color: #ff7979;
+  box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0, 0, 0, 0.08),
+    0 3px 0 4px rgba(0, 0, 0, 0.05);
+  /* 바깥의 영역으로 흰색의 선을 부여, 
+    안쪽에 한번 더 그림자 부여
+    바깥쪽에 마지막으로 그림자 한번 더 부여해서 버튼처럼 만들어진 느낌 
+    X축 / Y축/ 블러 / 퍼지는 효과 / 색깔
+    →보통 바깥으로 퍼지는 그림자 
+    →inset을 설정하면 안쪽으로 퍼지는 그림*/
+}
+
+.community .inner .row {
+  display: flex;
+}
+
+.community .inner .row section {
+  background-color: #eee;
+  border-radius: 5px;
+  width: calc(50% - 40px);
+  padding: 20px;
+  position: relative;
+  /* 아이콘에 좌표값을 부여해서 각각 다른 위치에 배치하기 위해 포지션 부여 */
+}
+
+/* 꾸미기 용도 */
+.community .inner .row section::before {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 15px;
+  background-color: #ff7979;
+  position: absolute;
+  top: 28px;
+  transform: rotate(45deg);
+  /* 네모를 다이아몬드 모양으로 돌리기 */
+  z-index: -1;
+  /* 돌아간 네모 모양을 전부 보이게 하지 않고 반만 보이게 하기 위해서 */
+}
+
+.community .inner .row section .icon {
+  /* html에서 폰트어썸에서 가져온 아이콘 앞에 icon 띄어쓰기를 전부 붙여서
+   class 불러오기 */
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f2f2f2;
+  text-align: center;
+  line-height: 40px;
+  color: #ff7979;
+  font-size: 17px;
+  box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0, 0, 0, 0.08),
+    0 3px 0 4px rgba(0, 0, 0, 0.05);
+}
+
+/* 문구 코딩 영역 */
+.community .inner .row section .details {
+  display: flex;
+  justify-content: space-between;
+  /* 박스 안에 첫 줄 문구 양 끝 좌우 배치 */
+  align-items: center;
+  /* 티는 안나지만 깔끔하게 정렬하기 위해 코딩 */
+}
+
+.community .inner .row section .details .title {
+  font-size: 22px;
+  font-weight: 600;
+  font-family: "Noto Serif", serif;
+}
+
+.community .inner .row section p {
+  margin: 10px 0 17px 0;
+  font-family: "Fasthand", cursive;
+}
+
+.community .inner .row section .bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* p 태그 문구도 양끝 좌우 배치를 하기 위해서 */
+}
+
+.community .inner .row section .bottom a {
+  display: block;
+  /* a는 인라인 태그이기 때문에 위 아래의 영역을 가질 수 없어서 갖게 하기 위해 */
+  background-color: #ff7979;
+  padding: 7px 15px;
+  /* dispaly에 block 값을 부여하지 않아도 위아래 패딩 값이 먹히는건 버그이다.
+  버그를 이용해서 코딩하기도 하지만 웹 접근성에 어긋나므로 우리는 명시해주도록 한다. */
+  border-radius: 5px;
+  color: #fff;
+  font-family: "Noto Serif", serif;
+}
+
+.community .inner .row-1 {
+  justify-content: flex-start;
+}
+
+.community .inner .row-1 section .icon {
+  top: 15px;
+  right: -60px;
+  /* section에 포지션 기준점을 부여했으므로 icon의 좌표값을 부여 */
+}
+
+.community .inner .row-1 section::before {
+  right: -7px;
+  /* 위에 꾸미는 용도에서 하던거 이어하기, 자리배치 
+  다이아몬드 모양을 전부 보이게 하진 않고 반, 삼각형만 보이게 하기 위해*/
+}
+
+.community .inner .row-2 section::before {
+  left: -7px;
+}
+
+.community .inner .row-2 section .icon {
+  top: 15px;
+  left: -60px;
+}
+
+.community .inner .row-2 {
+  justify-content: flex-end;
+}
+
+/* inner 1180px을 부여, 따라서 태블릿으로 넘어오는 경계를 1179px로 정하도록 한다.
+⇒선생님과 정한 규칙, 취업 시 회사의 규칙을 따르면 된다. */
+
+@media screen and (max-width: 1179px) {
+  /* 1원칙, 중복되는 구문은 생략 */
+  .community .inner {
+    width: 100%;
+    /* 2원칙, 고정픽셀로 부여한 값은 %나 뷰포트로 변경 
+    ⇒ 이유 : 가로(횡)스크롤이 생길 수 있어서 (메타 태그:HTML hrad부분에 있는; 때문에)*/
+  }
+
+  .community .inner .center-line {
+    left: 40px;
+    /* 50% → 40px로 변경. 이후 나머지 코드는 동일할 것으로 판단되어 지웠으나
+    추후에 변경 혹은 추가 된다면 와서 다시 넣어주거나 변경  */
+  }
+
+  .community .inner .row {
+    display: flex;
+    margin: 30px 0 3px 60px;
+    /* 전체 row 값이 좌측에 딱 붙어있기 때문에 좌측 여백 60px을 주어서 라인이 보이도록 하기 위해 마진 값 추가   */
+  }
+
+  .community .inner .row section {
+    width: 100%;
+    /* calc(50% - 40px); 에서 100%로 변경 */
+  }
+
+  .community .inner .row section::before {
+    left: -7px;
+    /* 네모 다이아몬드를 지그재그에서 좌측으로 밀어주기 위해 left 값 추가  */
+  }
+
+  .community .inner .row section .icon {
+    left: -60px;
+    /* .community .inner .row 의 margin (좌) 60px이 영향을 받는것이다. */
+  }
+}
+
+/* 모바일 버젼 */
+@media screen and (max-width: 390px) {
+  /* 모바일 마다 width 값이 다르다는걸 인지하고 있을 것
+  웹을 기준으로 할것인가, 태블릿을 기준으로 할 것인가?
+  태블릿은 접근이 쉽다. 초기에는 그렇게 하되 완벽성을 추구하기 위해선 둘 다 생각해야 한다. */
+
+  /* 바로 위에 오는 media 쿼리를 복사해온다. */
+  .community .inner .center-line {
+    display: none;
+  }
+
+  .community .inner .row {
+    margin: 10px 0;
+  }
+
+  .community .inner .row section::before {
+    display: none;
+  }
+
+  .community .inner .row section .icon {
+    display: none;
+  }
+}
